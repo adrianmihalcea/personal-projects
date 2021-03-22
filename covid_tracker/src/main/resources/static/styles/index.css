@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+    height: 5.5vh;
+}
+
+.topnav a {
+    float: left;
+    /*color: #f2f2f2;*/
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topbutton {
+    color: white;
+    background-color: #333;
+    height: 20%;
+}
+
+.topbutton:active {
+    /*background-color: rgb(44, 110, 45);*/
+    color: #dbdec5;
+}
+
+.topbutton:hover {
+    color: #dbdec5;
+    cursor: pointer;
+}
+
+.homebutton {
+    background-color: rgb(44, 110, 45);
+    color: white;
+    height: 5.5vh;
+}
+
+.homebutton:active {
+    background-color: rgb(44, 110, 45);
+}
+
+.homebutton:hover {
+    color: #dbdec5;
+    cursor: pointer;
+}
+
+.homeBody {
+    height: 94.5vh;
+    width: 100vw;
+    align-items: center;
+    background-color: #e3e0cc;
+}
+
+.titleText {
+    font-family: 'Montserrat', sans-serif;
+    width: 70vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 400%;
+    top: 20vh;
+    left: 14vw;
+}
+
+.teamName {
+    font-family: 'Montserrat', sans-serif;
+    width: 70vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 300%;
+    top: 30vh;
+    left: 25vw;
+    color: rgb(44, 110, 45);
+}
+
+.description {
+    font-family: 'Raleway', sans-serif;
+    width: 40vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 150%;
+    top: 50vh;
+    left: 28vw;
+    color: black;
+    text-align: center;
+}

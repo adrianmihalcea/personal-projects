@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Coronavirus Tracker Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link th:href="@{/styles/index.css}" rel="stylesheet" />
+    <link th:href="@{/styles/country-stat.css}" rel="stylesheet"/>
+
+</head>
+
+<body>
+<div class="topnav">
+    <a class="homebutton" th:onclick="|window.location.href='/'|">Home</a>
+    <a class="topbutton" th:onclick="|window.location.href='/reported-cases'|">Reported Cases</a>
+    <a class="topbutton" th:onclick="|window.location.href='/vaccines'|">Vaccines</a>
+    <a class="topbutton" th:onclick="|window.location.href='/news'|">News</a>
+    <a class="topbutton" th:onclick="|window.location.href='/tweets'|">Tweets</a>
+</div>
+
+<div class="container">
+    <h1 class="pageTitle"><span style="color: darkgreen">Vaccine</span> details</h1>
+
+    <div class="jumbotron" style="background-color: #3c6634; color: white;">
+        <h1 class="display-4" th:text="${vaccine}"></h1>
+        <p class="lead" th:text="${mechanism}"></p>
+        <p class="lead" th:text="${sponsors}"></p>
+        <p class="lead" th:text="${phase}"></p>
+        <p class="lead" th:text="${institutions}"></p>
+        <p class="lead" th:text="${details}"></p>
+    </div>
+
+</div>
+
+</body>
+
+</html>

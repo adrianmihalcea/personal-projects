@@ -1,0 +1,14 @@
+.pageTitle {
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    width: 40vw;
+    left: 0vw;
+    font-size: 200%;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+body {
+    background-color: #f7f7f0;
+}

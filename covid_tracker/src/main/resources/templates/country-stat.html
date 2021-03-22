@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Coronavirus Tracker Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link th:href="@{/styles/index.css}" rel="stylesheet" />
+    <link th:href="@{/styles/country-stat.css}" rel="stylesheet"/>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        // var tara = $("country");
+        // console.log(tara);
+
+        function drawChart() {
+            var tara = document.getElementById("country").value;
+            var morti = document.getElementById("deathsList").value;
+            var lista = tara.split`,`.map(x=>+x);
+            var mortilista = morti.split`,`.map(x=>+x);
+            var theRemovedElement = lista.shift();
+            var theRemovedElement = lista.pop();
+            var theRemovedElement = mortilista.shift();
+            var theRemovedElement = mortilista.pop();
+            // console.log(lista);
+            // console.log(lista.length);
+            var i = 0;
+            var listArray = [];
+            listArray.push(['Month', 'New Cases']);
+            for(i = 0; i < lista.length; i = i + 1) {
+                var element = [i, lista[i]];
+                listArray.push(element);
+                // console.log(lista[i]);
+            }
+
+            var j = 0;
+            var listDeths = [];
+            listDeths.push(['Month', 'New Deaths']);
+            for(j = 0; j < mortilista.length; j = j + 1) {
+                var element = [j, mortilista[j]];
+                listDeths.push(element);
+                // console.log(lista[i]);
+            }
+            // console.log(listArray);
+            var data = google.visualization.arrayToDataTable(listArray);
+            var data2 = google.visualization.arrayToDataTable(listDeths);
+
+            var options = {
+                title: 'Daily Statistic',
+                curveType: 'function',
+                legend: { position: 'bottom' }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+            var chart2 = new google.visualization.LineChart(document.getElementById('curve_chart2'));
+
+            chart.draw(data, options);
+            chart2.draw(data2, options);
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="homebutton" th:onclick="|window.location.href='/'|">Home</a>
+        <a class="topbutton" th:onclick="|window.location.href='/reported-cases'|">Reported Cases</a>
+        <a class="topbutton" th:onclick="|window.location.href='/vaccines'|">Vaccines</a>
+        <a class="topbutton" th:onclick="|window.location.href='/news'|">News</a>
+        <a class="topbutton" th:onclick="|window.location.href='/tweets'|">Tweets</a>
+    </div>
+
+    <div class="container">
+        <h1 class="pageTitle"><span style="color: darkgreen">Country's</span> statistics</h1>
+
+        <div class="jumbotron" style="background-color: #3c6634; color: white;">
+            <h1 class="display-4" th:text="${location.getCountry()}"></h1>
+            <p class="lead" th:text="${totalCases}"></p>
+            <p class="lead" th:text="${growth}"></p>
+        </div>
+
+        <h1 class="countryLine" th:text="${casesString}">Today's new cases</h1>
+
+        <input id="country" type="hidden" th:value="${location.getExtraCases()}"/>
+        <input id="deathsList" type="hidden" th:value="${deathArray}"/>
+
+        <div id="curve_chart" style="position: relative; width: 50vw; height: 50vh;left: 4vw; margin-top: 5vh; margin-bottom: 10vh; border-style: solid; border-color: black"></div>
+
+        <h1 class="countryLine" th:text="${deaths}">Today's new cases</h1>
+
+        <div id="curve_chart2" style="position: relative; width: 50vw; height: 50vh;left: 4vw; margin-top: 5vh; margin-bottom: 10vh; border-style: solid; border-color: black"></div>
+
+    </div>
+
+</body>
+
+</html>
