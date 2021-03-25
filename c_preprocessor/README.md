@@ -17,19 +17,19 @@ with passing input and output files. If no input/ output files are found,
 stdin/ stdout will be used for input and output.
 
 ## Supported directives
-- #define <SYMBOL> [<MAPPING>]
+`#define <SYMBOL> [<MAPPING>]`
 	- stores a mapping and replaces all future encounters of the symbol with
 	the mapping unless within a literal,
 	- works within other directives;
-- #if <CONDITION> / #elif <CONDITION> / #else / #endif
+`#if <CONDITION> / #elif <CONDITION> / #else / #endif`
 	- check if each branch has a condition that evaluates to a non-null
 	numeral,
 	- only supports literals and defines that are replaced with numerals by
 	define directives;
-- #ifdef <SYMBOL> / #ifndef <SYMBOL> / #else / #endif
+`#ifdef <SYMBOL> / #ifndef <SYMBOL> / #else / #endif`
 	- same as above, but uses as truth condition whether the symbol has already
 	been defined;
-- #include "HEADER"
+`#include "HEADER"`
 	- preprocesses the header file found either in the current directive or in
 	one of the included paths and adds the preprocessed code at the current
 	line in the original source
