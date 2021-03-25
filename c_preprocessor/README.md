@@ -21,14 +21,17 @@ stdin/ stdout will be used for input and output.
 	- stores a mapping and replaces all future encounters of the symbol with
 	the mapping unless within a literal,
 	- works within other directives;
+
 `#if <CONDITION> / #elif <CONDITION> / #else / #endif`<br>
 	- check if each branch has a condition that evaluates to a non-null
 	numeral,
 	- only supports literals and defines that are replaced with numerals by
 	define directives;
+
 `#ifdef <SYMBOL> / #ifndef <SYMBOL> / #else / #endif`<br>
 	- same as above, but uses as truth condition whether the symbol has already
 	been defined;
+
 `#include "HEADER"`<br>
 	- preprocesses the header file found either in the current directive or in
 	one of the included paths and adds the preprocessed code at the current
