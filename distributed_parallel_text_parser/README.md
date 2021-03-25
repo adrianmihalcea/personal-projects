@@ -47,12 +47,13 @@ The processor thread receives a reference to a vector of lines (a subset of the
 paragraph) and applies the desired transformation on each line.
 
 ## Scalability (P = number of threads per node)
-                     serial       P = 6        P = 12
-Test 1 (1KB):        0.009s       0.365s       0.365s
-Test 2 (2,407KB):    0.211s       1.518s       0.465s
-Test 3 (7,489KB):    0.600s       0.615s       0.616s
-Test 4 (138,748KB):  10.377s      5.027s       4.825s
-Test 5 (199,991KB):  14.761s      7.032s       6.880s
+| Test | serial | P = 6 | P = 12 |
+| :------------- | :----------: | :----------: | -----------: |
+| Test 1 (1KB) | 0.009s | 0.365s | 0.365s |
+| Test 2 (2,407KB) | 0.211s | 1.518s | 0.465s |
+| Test 3 (7,489KB) | 0.600s | 0.615s | 0.616s |
+| Test 4 (138,748KB) | 10.377s | 5.027s | 4.825s |
+| Test 5 (199,991KB) | 14.761s | 7.032s | 6.880s |
 
 Serial represents a single-node single-thread implementation of the same code.
 
