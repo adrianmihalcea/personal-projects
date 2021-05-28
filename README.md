@@ -10,8 +10,4 @@ some extra-curricular activities.
 
 2. Bow and Arrow Game
 
-3. C preprocessor
-
-4. Distributed and parallel text parser
-
-5. Buffered stdio implementation
+3. Distributed and parallel text parser
