@@ -1,0 +1,8 @@
+{
+    "domain": "dev-uu4ze3fs.us.auth0.com",
+    "clientId": "JncMB6WKcvRU14g7SzWQN4I5lKCn1iHi",
+    "audience": "http://bend:8080/",
+    "apiUri": "http://localhost:3000",
+    "appUri": "http://localhost:4200",
+    "errorPath": "/error"
+}

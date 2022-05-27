@@ -1,0 +1,10 @@
+.bkgr{
+    height:91.5%;
+    background-size:cover;
+    width:100vw;
+    background-image:url('../../../assets/roles.jpg');
+    background-position:50% 50%;
+    position: absolute;
+    left: 0%;
+    /* // margin-top:0px; */
+  }

@@ -1,0 +1,68 @@
+version: "3.8"
+
+services:
+    db:
+        image: mysql:5.7
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: secret
+            MYSQL_DATABASE: db
+            MYSQL_ROOT_HOST: '%'
+
+        volumes:
+            - db_volume:/var/lib/mysql
+        
+        networks:
+            - bend_db
+
+    bend:
+        image: bend
+        restart: on-failure
+        ports:
+            - "8080:8080"
+        depends_on:
+            - db
+            - broker
+            - email
+        
+        environment:
+            AUTH0_AUDIENCE: 'http://bend:8080/'
+            AUTH0_SECRET: 'N8LFlhgKqwfBlo2sE7j-fdVBHdGDjvzKgPLtJHWUeM3MhAp-xewvateW582M-DnK'
+            AUTH0_CLIENT: 'qiDSzMRVE5sepQXR9LETIGVu9ocaw33O'
+
+        networks:
+            - bend_db
+
+    fend:
+        image: fend
+
+        ports:
+            - "4200:4200"
+        depends_on:
+            - db
+            - bend
+        
+        networks:
+            - bend_db
+
+    broker:
+        image: eclipse-mosquitto:1.6.12
+        ports:
+            - "1883:1883"
+        networks:
+            - bend_db
+
+    email:
+        image: email
+        networks:
+            - bend_db
+
+        depends_on:
+            - broker
+
+networks:
+    bend_db:
+
+volumes:
+    db_volume:

@@ -1,0 +1,15 @@
+<div style="margin-top: 10%; left: 15%; width: 70%; align-items: center; text-align: center;">
+    <div *ngIf="donationCompleted" class="alert alert-success" role="alert">
+        Your donation has been succesfully processed!
+      </div>
+    <h1 style="text-align: center; font-size: 150%; font-family: 'Koulen', cursive; left: 15%; margin-bottom: 10%;">Our hubs: </h1>
+
+    <div class="list-group">
+        <div *ngFor="let hub of hubs; let i = index">
+
+                <button type="button" class="list-group-item list-group-item-action" (click)="hubSelection(i)">{{hub}}</button>
+
+        </div>
+    </div>
+
+</div>
